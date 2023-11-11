@@ -4,6 +4,13 @@ from listings.views import listing_list, listing_retrieve, listing_create, listi
 from .views import home_view 
 from users.views import register, login_user, logout_user 
 
+from rest_framework import routers 
+from .views import *
+
+router = routers.DefaultRouter() 
+router.register(r'listings', test_view, 'listing')
+
+
 from django.conf import settings 
 from django.conf.urls.static import static 
 
@@ -27,7 +34,8 @@ urlpatterns = [
     path('rent/single/<pk>/', listing_rent), 
 
     path('user/', include('users.urls')),
-    path('staff/', include('staff.urls'))  
+    path('staff/', include('staff.urls')), 
+    path('api/', include(router.urls)), 
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 

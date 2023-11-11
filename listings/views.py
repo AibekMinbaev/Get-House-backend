@@ -7,9 +7,6 @@ from .filters import BuyFilter
 from django.core.paginator import Paginator 
 
 
-# Create your views here.
-# CGUD - create, read, update, delete and list(will show all the elements) 
-
 state_dict = {
     'AL': 'Alabama',
     'AK': 'Alaska',
