@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
     state = { loading: false };
 
     componentDidMount() {
-        // 测试 devServer 的代理功能
-        // fetch('/api/category')
-        //     .then(resp => resp.json())
-        //     .then(res => console.log('here here', res));
+        // fetch('http://localhost:8000/api/listings');
+        fetch('http://127.0.0.1:8000/api/listings/')
+            .then(response => response.json())
+            .then(data => this.setState({ items: data }));
     }
 
     render() {
+        const { items } = this.state;
         return (
-            <div className="App">
-                <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h2>Welcome to React</h2>
-                </div>
-                <p>{ this.state.loading.toString() }</p>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
+            <div id="bla">
+                <h1>Welcome to main page</h1>
+                {items.map(item => (
+                    <div key={item.id}>
+                        <h1>{item.title}</h1>
+                        <p>{item.body}</p>
+                    </div>
+                ))}
             </div>
         );
     }

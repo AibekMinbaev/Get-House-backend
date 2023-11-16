@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include 
 
-
 from django.conf import settings 
 from django.conf.urls.static import static 
 
@@ -26,6 +25,7 @@ user_patterns = [
     path('profile/', user_views.profile_page),
     path('profile/edit/', user_views.profile_edit),
     path('properties/', user_views.my_properties),
+
 
     path('aboutus/', user_views.aboutus), 
     path('contactus/', user_views.contactus_create), 
