@@ -5,7 +5,6 @@ from rest_framework import viewsets
 from listings.serializers import ListingSerializer 
 from listings.models import Listing
 
-
 def home_view(request): 
     if request.method == "POST":
         price = request.POST.get('price')
@@ -19,6 +18,8 @@ def home_view(request):
     context = {'buy_filter':buy_filter} 
     return render(request, "home_page.html", context)   
 
+def aboutus(request): 
+    return render(request, "aboutus.html")
 
 class test_view(viewsets.ModelViewSet): 
     serializer_class = ListingSerializer

@@ -21,8 +21,7 @@ def contactus_create(request):
     context = {"form" : form}
     return render(request, "user_contactus.html", context) 
 
-def aboutus(request): 
-    return render(request, "aboutus.html") 
+ 
 
 @unauthenticated_user
 def register(request): 
