@@ -8,13 +8,11 @@ from . import views as main_views
 from users import views as user_views
 from listings import views as listings_views 
 
-
 #Admin url patterns 
 admin_patterns = [
     path('', admin.site.urls),
     path('logout/', user_views.logout_user),
 ]
-
 
 #Users url patterns 
 user_patterns = [
@@ -30,7 +28,6 @@ user_patterns = [
     path('aboutus/', user_views.aboutus), 
     path('contactus/', user_views.contactus_create), 
 ]
-
 
 #Property url patterns
 property_patterns = [
