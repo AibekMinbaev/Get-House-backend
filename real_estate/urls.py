@@ -1,44 +1,56 @@
 from django.contrib import admin
 from django.urls import path, include 
-from listings.views import listing_list, listing_retrieve, listing_create, listing_update, listing_delete, listing_rent_list, listing_rent
-from .views import home_view 
-from users.views import register, login_user, logout_user 
-
-from rest_framework import routers 
-from .views import *
-
-router = routers.DefaultRouter() 
-router.register(r'listings', test_view, 'listing')
-
 
 from django.conf import settings 
 from django.conf.urls.static import static 
 
+from . import views as main_views 
+from users import views as user_views
+from listings import views as listings_views 
 
+
+#Admin url patterns 
+admin_patterns = [
+    path('', admin.site.urls),
+    path('logout/', user_views.logout_user),
+]
+
+
+#Users url patterns 
+user_patterns = [
+    path('register/',user_views.register), 
+    path('login/', user_views.login_user),
+    path('logout/', user_views.logout_user),
+
+    path('profile/', user_views.profile_page),
+    path('profile/edit/', user_views.profile_edit),
+    path('properties/', user_views.my_properties),
+
+
+    path('aboutus/', user_views.aboutus), 
+    path('contactus/', user_views.contactus_create), 
+]
+
+
+#Property url patterns
+property_patterns = [
+    path('all/', listings_views.listing_list),
+    path('single/<pk>/', listings_views.listing_retrieve ),
+    path('create/', listings_views.listing_create), 
+    path('single/<pk>/update/', listings_views.listing_update),
+    path('single/<pk>/delete/', listings_views.listing_delete), 
+    path('rent/all/', listings_views.listing_rent_list), 
+    path('rent/single/<pk>/', listings_views.listing_rent),
+]
+
+# Main url patterns 
 urlpatterns = [
-    path('admin/logout/', logout_user),
-    path('admin/', admin.site.urls),
-
-    path('register/',register), 
-    path('login/',login_user),
-    path('logout/', logout_user), 
-
-
-    path("home/", home_view), 
-    path('listings/all/', listing_list),
-    path('listings/single/<pk>/',listing_retrieve ),
-    path('listings/create/', listing_create), 
-    path('listings/single/<pk>/update/', listing_update),
-    path('listings/single/<pk>/delete/', listing_delete), 
-    path('rent/all/', listing_rent_list), 
-    path('rent/single/<pk>/', listing_rent), 
-
-    path('user/', include('users.urls')),
-    path('staff/', include('staff.urls')), 
-    path('api/', include(router.urls)), 
+    path("", main_views.home_view), 
+    path("admin/", include(admin_patterns)), 
+    path('user/', include(user_patterns)),
+    path('property/', include(property_patterns)),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
-
 
       
