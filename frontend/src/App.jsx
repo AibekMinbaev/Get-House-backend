@@ -1,6 +1,7 @@
 import React from 'react' 
 
 class App extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -34,7 +35,6 @@ class App extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    console.log(items) 
 
     if (error) {
       return <div>Error: {error.message}</div>;
