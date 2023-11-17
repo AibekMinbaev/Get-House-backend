@@ -1,12 +1,20 @@
 from django.contrib import admin
 from django.urls import path, include 
+from rest_framework import routers  
 
 from django.conf import settings 
 from django.conf.urls.static import static 
 
+#Importing views 
 from . import views as main_views 
 from users import views as user_views
 from listings import views as listings_views 
+
+
+#API urls
+router = routers.DefaultRouter()
+router.register(r'properties', listings_views.PropertyViewSet, "properties")
+
 
 #Admin url patterns 
 admin_patterns = [
@@ -30,25 +38,13 @@ user_patterns = [
     path('contactus/', user_views.contactus_create), 
 ]
 
-#Property url patterns
-property_patterns = [
-    path('all/', listings_views.listing_list),
-    path('single/<pk>/', listings_views.listing_retrieve ),
-    path('create/', listings_views.listing_create), 
-    path('single/<pk>/update/', listings_views.listing_update),
-    path('single/<pk>/delete/', listings_views.listing_delete), 
-]
 
 # Main url patterns 
 urlpatterns = [
-    path("", main_views.home_view), 
-    path('aboutus/', main_views.aboutus),
-
+    path("api/", include(router.urls)),
     path("admin/", include(admin_patterns)), 
+
     path('user/', include(user_patterns)),
-    path('property/', include(property_patterns)),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
-
-      
