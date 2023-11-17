@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required 
 from .decorators import unauthenticated_user, allowed_users
 from django.contrib.auth.forms import UserChangeForm 
-from .models import My_profile
+from .models import My_profile, ContactUs
 from listings.models import Listing 
 
 def contactus_create(request):  
@@ -111,3 +111,17 @@ def profile_edit(request):
         form = CustomUserChangeForm(instance=request.user, initial={'profile_pic': request.user.my_profile.profile_pic, 'age': request.user.my_profile.age, 'phone_number': request.user.my_profile.phone_number}) 
     context = {'form': form}
     return render(request, 'profile_edit.html', context) 
+
+@allowed_users(allowed_roles=['admins','staffs'])
+def messages_page(request): 
+    messages = ContactUs.objects.all()
+    context = {'messages': messages}
+    return render(request, 'messages_page.html', context)  
+
+
+@allowed_users(allowed_roles=['admins','staffs'])
+def messages_detail(request, pk): 
+    message_detail = ContactUs.objects.get(pk=pk) 
+    context = {'message_detail' : message_detail} 
+    return render(request, 'message_detail.html', context) 
+    

@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 from . import views as main_views 
 from users import views as user_views
 from listings import views as listings_views 
-from staff import views as staff_views 
 
 #Admin url patterns 
 admin_patterns = [
@@ -25,8 +24,8 @@ user_patterns = [
     path('profile/edit/', user_views.profile_edit),
     path('properties/', user_views.my_properties),
 
-    path('messages/', staff_views.messages_page),
-    path('messages/<pk>/', staff_views.messages_detail), 
+    path('messages/', user_views.messages_page),
+    path('messages/<pk>/', user_views.messages_detail), 
 
     path('contactus/', user_views.contactus_create), 
 ]
@@ -38,8 +37,6 @@ property_patterns = [
     path('create/', listings_views.listing_create), 
     path('single/<pk>/update/', listings_views.listing_update),
     path('single/<pk>/delete/', listings_views.listing_delete), 
-    path('rent/all/', listings_views.listing_rent_list), 
-    path('rent/single/<pk>/', listings_views.listing_rent),
 ]
 
 # Main url patterns 

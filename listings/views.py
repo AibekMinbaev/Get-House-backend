@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect 
-from .models import Listing, Listing_rent 
+from .models import Listing 
 from .forms import ListingForm 
 from django.contrib.auth.decorators import login_required
 from users.decorators import allowed_users 
@@ -124,15 +124,4 @@ def listing_delete(request, pk): # this function is for deleting the listing
     listing = Listing.objects.get(id=pk) 
     listing.delete() 
     return redirect("/listings/all/")
-
-def listing_rent_list(request):
-    rents = Listing_rent.objects.all() 
-    context = {"rents": rents}
-    return render(request, "listings_rent.html", context)
-
-def listing_rent(request, pk): 
-    rent = Listing_rent.objects.get(pk=pk) 
-    context = {"rent": rent} 
-    return render(request, "listing_rent.html", context) 
-
 
