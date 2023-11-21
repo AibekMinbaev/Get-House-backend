@@ -1,6 +1,7 @@
 import React from 'react' 
 
 class App extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +16,7 @@ class App extends React.Component {
       .then(res => res.json())
       .then(
         (result) => {
-          this.setState({
+          this.setState({ 
             isLoaded: true,
             items: result
           });
@@ -34,7 +35,6 @@ class App extends React.Component {
 
   render() {
     const { error, isLoaded, items } = this.state;
-    console.log(items) 
 
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -42,15 +42,19 @@ class App extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
+        <div id="main-div">
+           <section id="info">
           <h1>The list of properties: </h1>
-          <ul>
+        </section> 
+        <section id="property-list">
+          <ul id="property_list">
             {items?.map(item => (
-              <li key={item.id}>
+              <li>
                 {item.title}:   {item.price}
               </li>
             ))}
           </ul>
+        </section>
         </div>
       );
     }
