@@ -1,0 +1,16 @@
+#main-header{
+    height: 100px;
+}
+
+#inner-header{
+    width: 1000px; 
+    height: 100px; 
+
+    border: solid 1px; 
+    border-radius: 20px; 
+
+    margin: auto; 
+
+    display: flex; 
+
+}
