@@ -1,4 +1,7 @@
 import React from 'react' 
+import Property from './components/Property.jsx'
+import Header from './components/Header.jsx'
+import "./App.css"
 
 class App extends React.Component {
   
@@ -21,9 +24,6 @@ class App extends React.Component {
             items: result
           });
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           this.setState({
             isLoaded: true,
@@ -42,20 +42,18 @@ class App extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div id="main-div">
-           <section id="info">
-          <h1>The list of properties: </h1>
-        </section> 
-        <section id="property-list">
-          <ul id="property_list">
-            {items?.map(item => (
-              <li>
-                {item.title}:   {item.price}
-              </li>
-            ))}
-          </ul>
+        <>
+        <Header></Header>
+        <section id="slider">
+
         </section>
-        </div>
+
+        <section id="property-list">
+            {items?.map(item => (
+              <Property {...item}></Property>
+            ))}
+        </section>
+        </>
       );
     }
   }

@@ -1,0 +1,15 @@
+#property-item{
+    border: solid 1px; 
+    border-radius: 20px; 
+
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 20px; 
+
+    padding: 10px; 
+
+    width: 780px; 
+    height: 200px;
+    align-self: center;
+    
+}

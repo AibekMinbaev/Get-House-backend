@@ -1,8 +1,6 @@
-#main-div{
-  border: solid 1px; 
+#slider{
+  height: 100px; 
+  margin-bottom: 20px; 
+  margin-top: 20px; 
+  background-color: #00ffff;
 }
-
-
-#property_list{
-  border: solid 1px; 
-} 
