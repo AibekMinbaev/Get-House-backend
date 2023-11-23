@@ -1,5 +1,4 @@
 #property-item{
-    border: solid 1px; 
     border-radius: 20px; 
 
     margin-left: auto; 
@@ -11,5 +10,8 @@
     width: 780px; 
     height: 200px;
     align-self: center;
-    
+
+    cursor: pointer; 
+    background-color: white;
+
 }
