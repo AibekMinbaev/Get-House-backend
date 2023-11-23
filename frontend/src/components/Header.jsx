@@ -9,15 +9,15 @@ export default function Header(){
         <div id="main-header">
             <div id="inner-header">
                 <div id="header-left">
-                    <img id="logo-img" style={{height: 80}} alt="Logo" src={logo} href="/"/>
+                    <img id="logo-img" alt="Logo" src={logo} href="/"/>
                 </div> 
 
                 <div id="header-middle">
-                    <a className="header-routes">Buy</a>
-                    <a className="header-routes">Rent</a>
-                    <a className="header-routes">Sell</a>
-                    <a className="header-routes">Find Agents</a>
-                    <a className="header-routes">About Us</a>
+                    <a className="header-routes" href="/buy">Buy</a>
+                    <a className="header-routes" href="/rent">Rent</a>
+                    <a className="header-routes" href="/sell">Sell</a>
+                    <a className="header-routes" href="/agents">Find Agents</a>
+                    <a className="header-routes" href="/aboutus">About Us</a>
                 </div>
 
                 <div id="header-right">

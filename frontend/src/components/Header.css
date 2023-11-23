@@ -5,7 +5,7 @@
     position: sticky; 
     top: 0; 
 
-    background-color: white;
+    background-color: whitesmoke;
 }
 
 #inner-header{
@@ -20,6 +20,7 @@
 
 #logo-img{
     cursor: pointer; 
+    height: 80px; 
 
 }
 
@@ -41,7 +42,9 @@
 .header-routes{
     cursor: pointer; 
 
-    margin: 10px; 
+    color: black; 
+    text-decoration: none; 
+    margin: 20px; 
 }
 
 #header-right{

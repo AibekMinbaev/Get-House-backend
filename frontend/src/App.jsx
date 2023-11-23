@@ -44,14 +44,10 @@ class App extends React.Component {
       return (
         <>
         <Header></Header>
-        <section id="slider">
-
-        </section>
-
-        <section id="property-list">
+        <section id="sub-main">
             {items?.map(item => (
-              <Property {...item}></Property>
-            ))}
+                <Property {...item}></Property>
+              ))}
         </section>
         </>
       );
