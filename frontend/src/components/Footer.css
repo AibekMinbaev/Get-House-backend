@@ -1,0 +1,32 @@
+#main-footer{
+    height: 200px;
+    margin-top: 5px; 
+
+    position: sticky; 
+    top: 0; 
+
+    background-color: white;
+}
+
+#inner-footer{
+    width: 1100px; 
+    height: 100px; 
+
+    margin: auto; 
+
+    display: flex; 
+
+}
+
+#logo-img{
+    cursor: pointer; 
+    height: 80px; 
+}
+
+#footer-left{
+    display: flex; 
+    align-items: center; 
+
+    margin-left: 0; 
+    margin-right: auto; 
+}
