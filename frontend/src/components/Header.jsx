@@ -1,9 +1,6 @@
 import "./Header.css"
 import logo from "../static/logo_used.png" 
 
-console.log(logo) 
-
-
 export default function Header(){
     return(
         <div id="main-header">

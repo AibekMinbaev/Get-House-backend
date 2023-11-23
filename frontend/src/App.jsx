@@ -1,6 +1,7 @@
 import React from 'react' 
 import Property from './components/Property.jsx'
 import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 import "./App.css"
 
 class App extends React.Component {
@@ -49,6 +50,7 @@ class App extends React.Component {
                 <Property {...item}></Property>
               ))}
         </section>
+        <Footer></Footer>
         </>
       );
     }
