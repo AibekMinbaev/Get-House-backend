@@ -1,6 +1,7 @@
 #main-header{
     height: 100px;
-    margin-top: 5px; 
+    margin-top: 5px;
+    margin-bottom: 20px;  
 
     position: sticky; 
     top: 0; 
@@ -41,7 +42,6 @@
 
 .header-routes{
     cursor: pointer; 
-
     color: black; 
     text-decoration: none; 
     margin: 20px; 
