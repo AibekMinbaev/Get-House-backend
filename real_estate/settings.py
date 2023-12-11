@@ -20,12 +20,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "django-insecure-3nrv6hg*o)l*z13j(h#^8mhmc3((af)i07@uwci6o^cmr1g)6o"
+
+#os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'aibekminbaev.pythonanywhere.com']
 
 
 # Application definition
@@ -39,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'corsheaders',
-    'rest_framework', 
+    'rest_framework',
     'listings',
     'users',
 ]
@@ -89,17 +92,17 @@ WSGI_APPLICATION = 'real_estate.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'get_house',
-        'USER': os.environ.get('MYSQL_USER'),
-        'PASSWORD': os.environ.get('MYSQL_PASSWORD'), 
-        'HOST': 'localhost',
+        'NAME': 'AibekMinbaev$get-house',
+        'USER': 'AibekMinbaev' , #os.environ.get('MYSQL_USER'),
+        'PASSWORD': '111223sql',  #os.environ.get('MYSQL_PASSWORD'),
+        'HOST': 'AibekMinbaev.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
 
 # import pprint
 # env_var = os.environ
-# pprint.pprint(dict(env_var), width = 1) 
+# pprint.pprint(dict(env_var), width = 1)
 
 
 # Password validation
@@ -145,7 +148,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'real_estate/static')]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/images/'
-MEDIA_ROOT = BASE_DIR / 'real_estate/static/images'  
+MEDIA_ROOT = BASE_DIR / 'real_estate/static/images'
 
 CORS_ORIGIN_WHITELIST = [
      'http://localhost:3000',
