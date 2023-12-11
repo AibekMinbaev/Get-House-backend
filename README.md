@@ -13,3 +13,5 @@ The backend is written using the Django framework and the frontend uses the Reac
 4. Run the project:
   * python manage.py runserver
 5. Open http://localhost:8080/ to see the page 
+
+check 
